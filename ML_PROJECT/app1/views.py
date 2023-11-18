@@ -25,7 +25,7 @@ def userINPUT(request):
         
         mynum=int(request.POST['number'])
         result = mynum
-        print(mynum)
+        print("hello")
 
 
     return render(request,'User_input.html' , {'result' : result })
