@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        aside {
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+            height: 100%;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        main {
+            padding: 20px;
+            box-sizing: border-box;
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <aside>
+        <ul>
+            <li><a href="{% url 'welcome' %}">Welcome</a></li>
+            <li><a href="{% url 'aboutMe' %}">About Me</a></li>
+            <li><a href="{% url 'userINPUT' %}">User Input</a></li>
+        </ul>
+    </aside>
+
+    <main>
+        <h1>Welcome</h1>
+        <p>Welcome to this Pager</p>
+    </main>
+</body>
+</html>s
