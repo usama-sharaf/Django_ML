@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 
-#from .models import Person
+from .models import Person 
 
 
 
@@ -24,8 +24,11 @@ def userINPUT(request):
 
         
         mynum=int(request.POST['number'])
-        result = mynum
-        print("hello")
+        result = mynum *100
+        
+        myinstance = Person(userinputvalue = mynum , mycalvalue = result)
+        myinstance.save()
+
 
 
     return render(request,'User_input.html' , {'result' : result })
