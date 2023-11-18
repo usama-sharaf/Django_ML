@@ -29,6 +29,8 @@ def userINPUT(request):
         myinstance = Person(userinputvalue = mynum , mycalvalue = result)
         myinstance.save()
 
+        print("Data entered")
+
 
 
     return render(request,'User_input.html' , {'result' : result })
