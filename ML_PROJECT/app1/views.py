@@ -6,6 +6,8 @@ from django.contrib.auth.decorators import login_required
 
 
 
+
+
 from openai import OpenAI
 client = OpenAI(api_key="sk-5FnpowQGwh7PgFNI9kMhjsdhbkFJE5aEUmyfe70hAdMy7xrM")
 
@@ -13,7 +15,7 @@ client = OpenAI(api_key="sk-5FnpowQGwh7PgFNI9kMhjsdhbkFJE5aEUmyfe70hAdMy7xrM")
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 
-from django.contrib.auth import login 
+from django.contrib.auth import login ,logout
 
 
 def gpt_process(string_value):
@@ -73,7 +75,7 @@ def signup_view(request):
         form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
 
-def login_view(request):
+def login_views(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
@@ -82,3 +84,20 @@ def login_view(request):
     else:
         form = AuthenticationForm()
     return render(request, 'login.html', {'form': form})
+
+@login_required
+def logout_fun(request):
+    logout(request)
+    return redirect('login')
+
+
+@login_required
+def csv_img_fun(request):
+    if request.method == 'POST':
+        # Assuming you have a form with a csrf_token and file fields named 'csvFile' and 'imageFile'
+        csv_file = request.FILES.get('csvFile')
+        image_file = request.FILES.get('imageFile')
+        print(csv_file)
+        print(image_file)
+
+    return render(request,'csv_image.html')

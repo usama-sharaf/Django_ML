@@ -85,18 +85,22 @@
             <li><a href="{% url 'welcome' %}">Welcome</a></li>
             <li><a href="{% url 'aboutMe' %}">About Me</a></li>
             <li><a href="{% url 'userINPUT' %}">User Input</a></li>
-            <li><a href="{% url 'logout' %}">logout</a></li>
             <li><a href="{% url 'img_csv' %}">Csv & Image</a></li>
+            <li><a href="{% url 'logout' %}">logout</a></li>
         </ul>
     </aside>
 
     <main>
         <h1>AI generative Text</h1>
         <p>Add Your Text </p>
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <label for="text">Enter Text:</label><br>
-            <input type="text" id="text" name="text">
+            <label for="csvFile">Upload CSV File:</label><br>
+            <input type="file" id="csvFile" name="csvFile" accept=".csv"><br>
+        
+            <label for="imageFile">Upload Image File:</label><br>
+            <input type="file" id="imageFile" name="imageFile" accept="image/*"><br>
+        
             <button type="submit">Submit</button>
         </form>
         
